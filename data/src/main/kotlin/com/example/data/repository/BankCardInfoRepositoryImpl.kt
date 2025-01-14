@@ -7,6 +7,8 @@ import com.example.domain.repository.BankCardInfoRepository
 import io.ktor.client.HttpClient
 import io.ktor.client.request.get
 import io.ktor.client.statement.bodyAsText
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import kotlinx.serialization.json.Json
 import kotlin.reflect.full.memberProperties
 
@@ -48,6 +50,13 @@ internal class BankCardInfoRepositoryImpl(private val dao: BankCardInfoDao) : Ba
         return when {
             newId != null && newId >= 0 -> Result.success(newId)
             else -> Result.failure(Exception("Failed to save bank card information to the database"))
+        }
+    }
+
+
+    override fun fetchSearchHistory(): Flow<List<BankCardInfo>> {
+        return dao.fetchAllBankCardsInfo().map { list ->
+            list.map { it.mapToDomainBankCardInfo() }
         }
     }
 

@@ -16,5 +16,5 @@ internal interface BankCardInfoDao {
     suspend fun addBankCardInfo(bankCardInfo: BankCardInfoDB): Long?
 
     @Query("SELECT * FROM CardsInfo")
-    fun fetchAllBankCardsInfo(): Flow<BankCardInfoDB>
+    fun fetchAllBankCardsInfo(): Flow<List<BankCardInfoDB>>
 }

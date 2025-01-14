@@ -6,6 +6,7 @@
     <string name="bank_card_info_title">Bank card information</string>
     <string name="bin_information">Information on BIN %s</string>
     <string name="card_number_contains">Card number contains</string>
+    <string name="bin_number" translatable="false">BIN</string>
 
     <plurals name="digits">
         <item quantity="one">%d digit</item>
@@ -19,6 +20,8 @@
     <string name="phone">Phone</string>
     <string name="website">Website</string>
     <string name="country_title">Country of card issue</string>
+    <string name="country">Country</string>
+    <string name="bank">Bank</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
     <string name="currency">Currency</string>
@@ -29,4 +32,5 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="country_location">Location</string>
+    <string name="history_title">Search History</string>
 </resources>

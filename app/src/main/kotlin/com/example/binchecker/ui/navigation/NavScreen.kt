@@ -13,6 +13,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.binchecker.ui.features.bininfo.BankCardInfoScreen
 import com.example.binchecker.ui.features.enter.EnterScreen
+import com.example.binchecker.ui.features.history.SearchHistoryScreen
 import org.koin.androidx.compose.koinViewModel
 import org.koin.core.parameter.parametersOf
 
@@ -40,12 +41,12 @@ fun NavScreen(modifier: Modifier = Modifier) {
         ) {
             EnterScreen(
                 viewModel = koinViewModel(),
-                navigateTo = { args ->
-                    when (args) {
-                        is CardInfoArguments -> navController.navigate(
-                            route = NavDestination.BankCardInfo.createUrl(args)
-                        )
-                    }
+                navigateToCardInfoScreen = { id ->
+                    val route = NavDestination.BankCardInfo.createUrl(CardInfoArguments(id))
+                    navController.navigate(route)
+                },
+                navigateToSearchHistoryScreen = {
+                    navController.navigate(NavDestination.SearchHistory.createUrl())
                 }
             )
         }
@@ -75,7 +76,40 @@ fun NavScreen(modifier: Modifier = Modifier) {
                     )
                 },
                 navigateBack = navController::popBackStack,
-                navigateToMap = {  }
+                navigateToMap = {}
+            )
+        }
+
+
+        composable(
+            route = NavDestination.SearchHistory.route,
+            enterTransition = {
+                enterScreenTransition(
+                    expandFrom = AbsoluteAlignment.Right as BiasAbsoluteAlignment.Horizontal
+                )
+            },
+            exitTransition = {
+                exitScreenTransition(
+                    shrinkTowards = AbsoluteAlignment.Left as BiasAbsoluteAlignment.Horizontal
+                )
+            },
+            popEnterTransition = {
+                enterScreenTransition(
+                    expandFrom = AbsoluteAlignment.Left as BiasAbsoluteAlignment.Horizontal
+                )
+            },
+            popExitTransition = {
+                exitScreenTransition(
+                    shrinkTowards = AbsoluteAlignment.Right as BiasAbsoluteAlignment.Horizontal
+                )
+            }
+        ) {
+            SearchHistoryScreen(
+                viewModel = koinViewModel(),
+                navigateToCardInfoDetails = { args ->
+                    navController.navigate(NavDestination.BankCardInfo.createUrl(args))
+                },
+                navigateBack = navController::popBackStack
             )
         }
     }

@@ -5,8 +5,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.binchecker.ui.navigation.CardInfoArguments
-import com.example.binchecker.ui.navigation.NavArguments
 import com.example.domain.model.BankCardInfo
 import com.example.domain.usecase.GetBankInformationUseCase
 import com.example.domain.usecase.SaveBankInformationUseCase
@@ -24,7 +22,7 @@ class EnterViewModel(
 
     sealed interface EnterEvent {
         data class ShowSnackbar(val message: String) : EnterEvent
-        data class NavigateToDestination(val arguments: NavArguments) : EnterEvent
+        data class NavigateToCardInfoScreen(val cardInfoId: Long) : EnterEvent
     }
 
     var isLoading by mutableStateOf(false)
@@ -43,8 +41,7 @@ class EnterViewModel(
             getBankInformationUseCase(bin)
                 .onSuccess { bankCardInfo ->
                     saveBankCardInformation(bankCardInfo)
-                        ?.let(::CardInfoArguments)
-                        ?.let(EnterEvent::NavigateToDestination)
+                        ?.let(EnterEvent::NavigateToCardInfoScreen)
                         ?.let { eventChannel.send(it) }
                 }
                 .onFailure { exception ->
@@ -52,11 +49,6 @@ class EnterViewModel(
                 }
             isLoading = false
         }
-    }
-
-
-    fun showHistory() {
-
     }
 
 

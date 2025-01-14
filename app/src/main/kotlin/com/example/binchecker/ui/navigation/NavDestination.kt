@@ -44,9 +44,11 @@ sealed class NavDestination<Args : NavArguments>(private val baseRoute: String) 
     }
 
 
-    data object SearchHistory : NavDestination<Nothing>("history") {
+    data object SearchHistory : NavDestination<EmptyNavArguments>("history") {
         override val argumentKeys: Set<String> = setOf()
 
-        override fun Nothing.associateWithKeys(): Map<String, Any?> = emptyMap()
+        override fun EmptyNavArguments.associateWithKeys(): Map<String, Any?> = emptyMap()
+
+        fun createUrl(): String = createUrl(EmptyNavArguments)
     }
 }

@@ -292,16 +292,21 @@ private fun Bank(
                         style = MaterialTheme.typography.titleSmall
                     )
                 },
-                leadingContent = {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Rounded.ArrowForwardIos,
-                        contentDescription = null,
-                        modifier = Modifier
-                            .scale(.7f)
-                            .graphicsLayer {
-                                rotationZ = arrowRotationAnimation.value
-                            }
-                    )
+                leadingContent = when {
+                    canExpand() -> {
+                        {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Rounded.ArrowForwardIos,
+                                contentDescription = null,
+                                modifier = Modifier
+                                    .scale(.7f)
+                                    .graphicsLayer {
+                                        rotationZ = arrowRotationAnimation.value
+                                    }
+                            )
+                        }
+                    }
+                    else -> null
                 },
                 headlineContent = {
                     Text(

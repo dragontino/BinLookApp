@@ -43,14 +43,14 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import com.example.binchecker.R
 import com.example.binchecker.ui.composables.Loading
-import com.example.binchecker.ui.navigation.NavArguments
 import com.example.binchecker.util.reversed
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun EnterScreen(
     viewModel: EnterViewModel,
-    navigateTo: (args: NavArguments) -> Unit,
+    navigateToCardInfoScreen: (id: Long) -> Unit,
+    navigateToSearchHistoryScreen: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val snackbarHostState = remember(::SnackbarHostState)
@@ -58,7 +58,7 @@ fun EnterScreen(
     LaunchedEffect(Unit) {
         viewModel.eventFlow.collect { event ->
             when (event) {
-                is EnterViewModel.EnterEvent.NavigateToDestination -> navigateTo(event.arguments)
+                is EnterViewModel.EnterEvent.NavigateToCardInfoScreen -> navigateToCardInfoScreen(event.cardInfoId)
 
                 is EnterViewModel.EnterEvent.ShowSnackbar -> snackbarHostState.showSnackbar(
                     message = event.message,
@@ -84,7 +84,7 @@ fun EnterScreen(
                         )
                     },
                     actions = {
-                        IconButton(onClick = viewModel::showHistory) {
+                        IconButton(onClick = navigateToSearchHistoryScreen) {
                             Icon(
                                 imageVector = Icons.Rounded.History,
                                 contentDescription = "show history",

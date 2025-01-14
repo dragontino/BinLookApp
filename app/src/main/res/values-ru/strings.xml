@@ -16,11 +16,13 @@
 
     <string name="luhn_used">Используется алгоритм Луна</string>
     <string name="luhn_not_used">Алгоритм Луна не используется</string>
-    <string name="bank_title">Банк, выдавший карту</string>
+    <string name="bank_title">Банк, выпустивший карту</string>
     <string name="city">Город</string>
     <string name="phone">Телефон</string>
     <string name="website">Сайт</string>
     <string name="country_title">Страна выпуска карты</string>
+    <string name="country">Страна</string>
+    <string name="bank">Банк</string>
     <string name="latitude">Широта</string>
     <string name="longitude">Долгота</string>
     <string name="currency">Валюта</string>
@@ -31,4 +33,5 @@
     <string name="yes">Да</string>
     <string name="no">Нет</string>
     <string name="country_location">Координаты</string>
+    <string name="history_title">История поиска</string>
 </resources>
