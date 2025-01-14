@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Приложение для проверки BIN-кода</string>
+    <string name="enter_bin">Введите ваш BIN-код</string>
+    <string name="get_data">Получить данные</string>
+    <string name="bank_card_info_title">Сведения о банковской карте</string>
+    <string name="bin_information">Информация по BIN номеру %s</string>
+    <string name="card_number_contains">Номер карты содержит</string>
+
+    <plurals name="digits">
+        <item quantity="one">%d цифру</item>
+        <item quantity="few">%d цифры</item>
+        <item quantity="many">%d цифр</item>
+        <item quantity="other">%d цифр</item>
+    </plurals>
+
+    <string name="luhn_used">Используется алгоритм Луна</string>
+    <string name="luhn_not_used">Алгоритм Луна не используется</string>
+    <string name="bank_title">Банк, выдавший карту</string>
+    <string name="city">Город</string>
+    <string name="phone">Телефон</string>
+    <string name="website">Сайт</string>
+    <string name="country_title">Страна выпуска карты</string>
+    <string name="latitude">Широта</string>
+    <string name="longitude">Долгота</string>
+    <string name="currency">Валюта</string>
+    <string name="card_scheme">Платёжная система</string>
+    <string name="card_type">Тип карты</string>
+    <string name="card_brand">Бренд карты</string>
+    <string name="card_prepaid">Предоплата</string>
+    <string name="yes">Да</string>
+    <string name="no">Нет</string>
+    <string name="country_location">Координаты</string>
+</resources>

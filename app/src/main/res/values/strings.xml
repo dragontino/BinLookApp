@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">BIN Checker</string>
+    <string name="activity_name" translatable="false">BIN LookApp</string>
+    <string name="enter_bin">Enter your BIN</string>
+    <string name="get_data">Get the data</string>
+    <string name="bank_card_info_title">Bank card information</string>
+    <string name="bin_information">Information on BIN %s</string>
+    <string name="card_number_contains">Card number contains</string>
+
+    <plurals name="digits">
+        <item quantity="one">%d digit</item>
+        <item quantity="other">%d digits</item>
+    </plurals>
+
+    <string name="luhn_used">Luna algorithm is used</string>
+    <string name="luhn_not_used">Luhn algorithm Isn\'t used</string>
+    <string name="bank_title">Bank that issued the card</string>
+    <string name="city">City</string>
+    <string name="phone">Phone</string>
+    <string name="website">Website</string>
+    <string name="country_title">Country of card issue</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="currency">Currency</string>
+    <string name="card_scheme">Scheme / Network</string>
+    <string name="card_type">Type</string>
+    <string name="card_brand">Brand</string>
+    <string name="card_prepaid">Prepaid</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="country_location">Location</string>
+</resources>
